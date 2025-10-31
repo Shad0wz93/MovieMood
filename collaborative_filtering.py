@@ -3,8 +3,8 @@ from implicit.als import AlternatingLeastSquares
 from scipy.sparse import coo_matrix
 
 # On récupère les données dans les fichiers csv
-movies = pd.read_csv('movies_metadata.csv')
-ratings = pd.read_csv('ratings_small.csv')
+movies = pd.read_csv('data/movies_metadata.csv')
+ratings = pd.read_csv('data/ratings_small.csv')
 
 # Pour le rendu
 movies['id'] = pd.to_numeric(movies['id'], errors='coerce')
