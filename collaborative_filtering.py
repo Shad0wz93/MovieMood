@@ -3,6 +3,7 @@ from implicit.als import AlternatingLeastSquares
 from scipy.sparse import coo_matrix
 from utils.post_processing import post_processing
 from utils.pre_processing import pre_processing
+from utils.processing import processing
 
 # On récupère les données dans les fichiers csv
 movies = pd.read_csv('movies_metadata.csv')
@@ -13,13 +14,9 @@ user_id = 2
 
 (matrix_csr, user_index, item_ids) = pre_processing(movies, ratings, user_id)
 
-# La magie
-model = AlternatingLeastSquares(factors=50, regularization=0.1, iterations=15)
-model.fit(matrix_csr)
 
 # La magie
-ids, scores = model.recommend(user_index, matrix_csr[user_index])
-
+ids, scores = processing(matrix_csr, user_index)
 (recommended_df, user_ratings_sorted) =  post_processing(movies, ratings, item_ids, ids, scores, user_id)
 recommended_df.to_csv('recommended_movies.csv')
 
