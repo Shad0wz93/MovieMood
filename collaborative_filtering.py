@@ -4,8 +4,8 @@ from utils.pre_processing import pre_processing
 from utils.processing import processing
 
 # On récupère les données dans les fichiers csv
-movies = pd.read_csv('tmdb_5000_movies.csv')
-ratings = pd.read_csv('ratings_small.csv')
+movies = pd.read_csv('datas/tmdb_5000_movies.csv')
+ratings = pd.read_csv('datas/ratings_small.csv')
 
 # On veut faire l'analyse pour l'utilisateur 2
 user_id = 2

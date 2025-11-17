@@ -2,7 +2,7 @@ import pandas
 import pandas as pd
 
 # Récupération du fichier des films
-df_movies = pd.read_csv("tmdb_5000_movies.csv")
+df_movies = pd.read_csv("datas/tmdb_5000_movies.csv")
 
 # Calcul de la note médiane des films
 C= df_movies['vote_average'].mean()

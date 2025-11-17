@@ -10,7 +10,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
 # Récupération du fichier des films
-df_movies = pd.read_csv("tmdb_5000_movies.csv")
+df_movies = pd.read_csv("datas/tmdb_5000_movies.csv")
 
 # Remplace les overview null par string vide
 df_movies["overview"] = df_movies["overview"].fillna("")

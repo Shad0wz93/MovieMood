@@ -8,8 +8,8 @@ import numpy as np
 from get_recommendations import get_recommendations
 
 # Récupération du fichier des films et des crédits
-df_movies = pd.read_csv("tmdb_5000_movies.csv")
-df_credits = pd.read_csv("tmdb_5000_credits.csv")
+df_movies = pd.read_csv("datas/tmdb_5000_movies.csv")
+df_credits = pd.read_csv("datas/tmdb_5000_credits.csv")
 
 # Merge les crédits dans la dataframe movie
 df_credits.columns = ['id','tittle','cast','crew']
