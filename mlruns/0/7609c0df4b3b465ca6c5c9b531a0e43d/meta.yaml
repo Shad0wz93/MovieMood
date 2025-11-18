@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/7609c0df4b3b465ca6c5c9b531a0e43d/artifacts
+end_time: 1763383495111
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 7609c0df4b3b465ca6c5c9b531a0e43d
+run_name: ALS_user_3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763383494589
+status: 4
+tags: []
+user_id: adam

@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/468898f28a8b44f9b436ed4b8883b351/artifacts
+end_time: 1763383595505
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 468898f28a8b44f9b436ed4b8883b351
+run_name: victorious-ray-489
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763383595015
+status: 4
+tags: []
+user_id: adam

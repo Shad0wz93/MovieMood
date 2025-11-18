@@ -1,10 +1,7 @@
 import pandas as pd
 import os
-import sys
-
-# Ajout du dossier parent pour reconnaître utils/
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-
+import mlflow
+from implicit.als import AlternatingLeastSquares
 from utils.pre_processing import pre_processing
 from utils.processing import processing
 from utils.post_processing import post_processing
@@ -12,7 +9,7 @@ from utils.post_processing import post_processing
 # Configuration
 movies_path = 'tmdb_5000_movies.csv'
 ratings_path = 'ratings_small.csv'
-credits_path = 'tmdb_5000_credits.csv'  # pour info, non utilisé ici
+credits_path = 'tmdb_5000_credits.csv'
 
 for file_path in [movies_path, ratings_path, credits_path]:
     if not os.path.exists(file_path):
@@ -20,27 +17,48 @@ for file_path in [movies_path, ratings_path, credits_path]:
 
 movies = pd.read_csv(movies_path)
 ratings = pd.read_csv(ratings_path)
-credits = pd.read_csv(credits_path)
 
-# Création du dossier outputs si nécessaire
+# ---------------------------
+# Dossier de sortie
+# ---------------------------
 os.makedirs('outputs', exist_ok=True)
 
-# Choix de l'utilisateur
+# ---------------------------
+# Paramètres ALS
+# ---------------------------
+factors = 50
+regularization = 0.1
+iterations = 15
+
+# ---------------------------
+# Entrée utilisateur
+# ---------------------------
 user_id = int(input("Entrez l'ID de l'utilisateur pour les recommandations : "))
 
-# Pipeline ALS
+# ---------------------------
+# Pipeline
+# ---------------------------
 matrix_csr, user_index, item_ids = pre_processing(movies, ratings, user_id)
 ids, scores = processing(matrix_csr, user_index)
 recommended_df, user_ratings_sorted = post_processing(movies, ratings, item_ids, ids, scores, user_id)
 
-# Sauvegarde
-output_file = f'outputs/recommended_movies_{user_id}.csv'
-recommended_df.to_csv(output_file, index=False)
-print(f"\n✅ Recommandations sauvegardées dans : {output_file}\n")
+# ---------------------------
+# MLflow logging
+# ---------------------------
+with mlflow.start_run():
+    mlflow.log_param("factors", factors)
+    mlflow.log_param("regularization", regularization)
+    mlflow.log_param("iterations", iterations)
+    mlflow.log_param("user_id", user_id)
 
-# Affichage console
-print(f"🎬 Films notés par l'utilisateur {user_id} :\n")
-print(user_ratings_sorted.head(10).to_string(index=False))
+    # Optionnel : log métriques simples
+    mlflow.log_metric("num_recommendations", len(recommended_df))
 
-print(f"\n⭐ Top recommandations pour l'utilisateur {user_id} :\n")
-print(recommended_df.head(10).to_string(index=False))
+    # Log CSV de recommandations
+    output_file = f'outputs/recommended_movies_{user_id}.csv'
+    recommended_df.to_csv(output_file, index=False)
+    mlflow.log_artifact(output_file)
+
+    print(f"\n✅ Recommandations sauvegardées dans : {output_file}\n")
+    print(user_ratings_sorted.head(10).to_string(index=False))
+    print(recommended_df.head(10).to_string(index=False))
