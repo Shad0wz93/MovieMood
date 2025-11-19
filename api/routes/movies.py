@@ -9,7 +9,7 @@ router = APIRouter(
     tags=["movies"]
 )
 
-csv_handler = CSVHandler(DATA_DIR / "movies.csv")
+csv_handler = CSVHandler(DATA_DIR / "movies_metadata.csv")
 movies_data: List[Movie] = []
 
 @router.on_event("startup")
