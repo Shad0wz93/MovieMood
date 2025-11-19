@@ -1,7 +1,31 @@
+from contextlib import asynccontextmanager
+from typing import List
+import pandas as pd
+from api.config import DATA_DIR
 from fastapi import APIRouter, HTTPException, Request
 
-router = APIRouter()
+# Variable globale pour stocker les données
+ratings_df = None
 
+@asynccontextmanager
+async def lifespan(app):
+    # Startup
+    global ratings_df
+    ratings_df = pd.read_csv(DATA_DIR / "ratings_small.csv")
+    print(f"✅ {len(ratings_df)} ratings chargés")
+    yield
+
+router = APIRouter(
+    prefix="",
+    tags=["users"],
+    lifespan=lifespan
+)
+
+@router.get("/users", response_model=List[int])
+async def get_all_user_ids():
+    """Récupère tous les IDs utilisateurs uniques"""
+    user_ids = ratings_df['userId'].unique().tolist()
+    return sorted(user_ids)
 
 @router.get("/users/{user_id}/seen")
 async def get_user_seen_movies(user_id: int, request: Request):

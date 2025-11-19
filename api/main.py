@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from api.routes import recommendations, users
+from api.routes import recommendations, users, movies
 from api.services.recommendation_service import RecommendationService
 from contextlib import asynccontextmanager
 
@@ -35,6 +35,7 @@ app.add_middleware(
 # Routes
 app.include_router(recommendations.router, prefix="/api/v1", tags=["recommendations"])
 app.include_router(users.router, prefix="/api/v1", tags=["users"])
+app.include_router(movies.router, prefix="/api/v1", tags=["movies"])
 
 
 @app.get("/")
@@ -45,6 +46,7 @@ async def root():
         "endpoints": {
             "POST /api/v1/predict": "Obtenir des recommandations personnalisées",
             "POST /api/v1/explain": "Expliquer pourquoi ces films ont été recommandés",
+            "GET /api/v1/users" : "Récupère tous les IDs des utilisateurs uniques",
             "GET /api/v1/users/{user_id}/seen": "Films déjà vus par l'utilisateur",
             "GET /api/v1/users/{user_id}/stats": "Statistiques de l'utilisateur",
             "GET /health": "Vérifier l'état du service"
