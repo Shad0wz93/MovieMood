@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/abdelghani/Desktop/IA/MovieMood/recommender/mlruns/647467578557626557/e9c28ccf0dac441d851caff0f07523f0/artifacts
+end_time: 1763412200998
+entry_point_name: ''
+experiment_id: '647467578557626557'
+lifecycle_stage: active
+run_id: e9c28ccf0dac441d851caff0f07523f0
+run_name: Modele_Logistique
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763412198468
+status: 3
+tags: []
+user_id: abdelghani

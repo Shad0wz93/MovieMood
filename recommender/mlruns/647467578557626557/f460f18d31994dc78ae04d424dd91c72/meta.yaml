@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/abdelghani/Desktop/IA/MovieMood/recommender/mlruns/647467578557626557/f460f18d31994dc78ae04d424dd91c72/artifacts
+end_time: 1763410496360
+entry_point_name: ''
+experiment_id: '647467578557626557'
+lifecycle_stage: active
+run_id: f460f18d31994dc78ae04d424dd91c72
+run_name: svd_v1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763410496078
+status: 3
+tags: []
+user_id: abdelghani

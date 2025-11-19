@@ -1,0 +1,10 @@
+artifact_location: file:///Users/abdelghani/Desktop/IA/MovieMood/recommender/mlruns/647467578557626557/models/m-dd038c82dd45471e9b134552aa196754/artifacts
+creation_timestamp: 1763409966129
+experiment_id: '647467578557626557'
+last_updated_timestamp: 1763409968529
+model_id: m-dd038c82dd45471e9b134552aa196754
+model_type: null
+name: model
+source_run_id: 511eb1ed27ae450a8b05948f4b6cdfec
+status: 2
+status_message: null

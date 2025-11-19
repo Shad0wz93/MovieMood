@@ -1,0 +1,14 @@
+artifact_uri: file:///Users/abdelghani/Desktop/IA/MovieMood/recommender/mlruns/647467578557626557/fe7426a06814491e8a58aaf1db4391f2/artifacts
+end_time: 1763410294619
+entry_point_name: ''
+experiment_id: '647467578557626557'
+lifecycle_stage: active
+run_id: fe7426a06814491e8a58aaf1db4391f2
+run_name: logistic_regression_v1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763410292177
+status: 3
+tags: []
+user_id: abdelghani

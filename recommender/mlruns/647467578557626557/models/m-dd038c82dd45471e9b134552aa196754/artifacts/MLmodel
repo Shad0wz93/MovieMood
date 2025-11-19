@@ -1,0 +1,22 @@
+artifact_path: file:///Users/abdelghani/Desktop/IA/MovieMood/recommender/mlruns/647467578557626557/models/m-dd038c82dd45471e9b134552aa196754/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.4
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.4.2
+mlflow_version: 3.5.1
+model_id: m-dd038c82dd45471e9b134552aa196754
+model_size_bytes: 78619
+model_uuid: m-dd038c82dd45471e9b134552aa196754
+prompts: null
+run_id: 511eb1ed27ae450a8b05948f4b6cdfec
+utc_time_created: '2025-11-17 20:06:06.134172'

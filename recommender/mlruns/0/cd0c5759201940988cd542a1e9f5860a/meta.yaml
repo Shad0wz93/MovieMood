@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/cd0c5759201940988cd542a1e9f5860a/artifacts
+end_time: 1763410023786
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: cd0c5759201940988cd542a1e9f5860a
+run_name: svd_v1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763410023780
+status: 4
+tags: []
+user_id: abdelghani
