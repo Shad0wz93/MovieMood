@@ -1,0 +1,14 @@
+artifact_uri: mlflow-artifacts:/0/222114ae7af84c099366b67b55b20918/artifacts
+end_time: 1763384249256
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 222114ae7af84c099366b67b55b20918
+run_name: Modele_Logistique
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1763384246188
+status: 4
+tags: []
+user_id: abdelghani

@@ -1,0 +1,8 @@
+artifact_location: mlflow-artifacts:/943150663475748138
+creation_time: 1763404414726
+experiment_id: '943150663475748138'
+last_update_time: 1763404441934
+lifecycle_stage: deleted
+name: IA
+tags:
+  mlflow.experimentKind: custom_model_development
