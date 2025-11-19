@@ -1,0 +1,30 @@
+artifact_path: /Users/adam/Desktop/MovieMood/mlruns/1/models/m-a1441e93eb06468b9e4d5d7c84054528/artifacts
+flavors:
+  python_function:
+    cloudpickle_version: 3.1.2
+    code: null
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.11.14
+    streamable: false
+is_signature_from_type_hint: false
+mlflow_version: 3.6.0
+model_id: m-a1441e93eb06468b9e4d5d7c84054528
+model_size_bytes: 572
+model_uuid: m-a1441e93eb06468b9e4d5d7c84054528
+prompts: null
+run_id: 4c5eb087f9e74ea5a538c35e63db8ddc
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "userId", "required": true}]'
+  outputs: '[{"type": "integer", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-11-18 23:04:03.686972'

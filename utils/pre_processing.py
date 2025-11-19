@@ -1,5 +1,6 @@
 import pandas as pd
 from scipy.sparse import coo_matrix
+from sklearn.preprocessing import StandardScaler
 
 def pre_processing(movies, ratings, user_id):
     # On s'assure que l'id des films est numérique
@@ -9,8 +10,15 @@ def pre_processing(movies, ratings, user_id):
     user_ids = ratings["userId"].astype('category')
     item_ids = ratings["movieId"].astype('category')
 
+    # Extraction des notes
+    rating_values = ratings['rating'].values.reshape(-1,1)
+
+    # Application du scaler
+    scaler = StandardScaler()
+    rating_scaled = scaler.fit_transform(rating_values).flatten()
+
     # Création de la matrice utilisateur × film
-    matrix = coo_matrix((ratings['rating'], (user_ids.cat.codes, item_ids.cat.codes)))
+    matrix = coo_matrix((rating_scaled, (user_ids.cat.codes, item_ids.cat.codes)))
     matrix_csr = matrix.tocsr()
 
     # Récupération de l'index utilisateur

@@ -8,4 +8,4 @@ def processing(matrix_csr, user_index):
     # Recommandations pour l'utilisateur
     ids, scores = model.recommend(user_index, matrix_csr[user_index])
 
-    return ids, scores
+    return model, ids, scores

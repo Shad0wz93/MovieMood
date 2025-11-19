@@ -1,0 +1,14 @@
+artifact_path: /Users/adam/Desktop/MovieMood/mlruns/1/models/m-f2f82f2c14944e18b019421ad45bddb3/artifacts
+flavors:
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.6.0
+model_id: m-f2f82f2c14944e18b019421ad45bddb3
+model_size_bytes: 569
+model_uuid: m-f2f82f2c14944e18b019421ad45bddb3
+prompts: null
+run_id: 4340003ee6ee4e4ba528d529546e2b71
+utc_time_created: '2025-11-18 23:04:45.775519'
