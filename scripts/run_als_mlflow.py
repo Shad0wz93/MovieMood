@@ -11,7 +11,7 @@ from als_model_wrapper import ALSModelWrapper
 # ---------------------------
 movies_path = 'tmdb_5000_movies.csv'
 ratings_path = 'ratings_small.csv'
-credits_path = 'tmdb_5000_credits.csv'  # vérifié mais non utilisé
+credits_path = 'tmdb_5000_credits.csv'
 
 for file_path in [movies_path, ratings_path, credits_path]:
     if not os.path.exists(file_path):

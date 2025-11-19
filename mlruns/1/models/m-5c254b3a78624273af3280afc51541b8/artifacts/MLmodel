@@ -1,0 +1,19 @@
+artifact_path: /Users/adam/Desktop/MovieMood/mlruns/1/models/m-5c254b3a78624273af3280afc51541b8/artifacts
+flavors:
+  python_function:
+    cloudpickle_version: 3.1.2
+    code: null
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.11.14
+    streamable: false
+mlflow_version: 3.6.0
+model_id: m-5c254b3a78624273af3280afc51541b8
+model_size_bytes: 412247
+model_uuid: m-5c254b3a78624273af3280afc51541b8
+prompts: null
+run_id: 2dd09b1bd31a4a93bd4231fde37e3b4b
+utc_time_created: '2025-11-19 00:05:36.722522'
