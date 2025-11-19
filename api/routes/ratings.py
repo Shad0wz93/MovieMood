@@ -17,8 +17,8 @@ async def lifespan(app):
     # Shutdown (si besoin de cleanup)
 
 router = APIRouter(
-    prefix="/users",
-    tags=["ratings"],
+    prefix="/",
+    tags=["users"],
     lifespan=lifespan
 )
 
