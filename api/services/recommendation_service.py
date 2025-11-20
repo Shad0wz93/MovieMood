@@ -22,11 +22,11 @@ class RecommendationService:
 
         # Movies
         df = pd.read_csv(self.data_path / "movies_metadata.csv", low_memory=False)
-        self.movies = df[["id", "title", "genres"]].copy()
+        self.movies = df[["id", "title", "genres", "imdb_id", "release_date", "runtime"]].copy()
         self.movies["movieId"] = pd.to_numeric(self.movies["id"], errors="coerce")
         self.movies = self.movies.dropna(subset=["movieId"])
         self.movies["movieId"] = self.movies["movieId"].astype(int)
-        self.movies = self.movies[["movieId", "title", "genres"]]
+        self.movies = self.movies[["movieId", "title", "genres", "imdb_id", "release_date", "runtime"]]
 
         # Ratings
         dr = pd.read_csv(self.data_path / "ratings_small.csv", low_memory=False)
@@ -162,7 +162,7 @@ class RecommendationService:
             return None
 
         top_recommendations = filtered.nlargest(topk, "hybrid_score")
-        return top_recommendations[["movieId", "title", "hybrid_score"]].reset_index(drop=True)
+        return top_recommendations[["movieId", "title", "hybrid_score", "genres", "imdb_id", "release_date", "runtime"]].reset_index(drop=True)
 
     def explain(
             self,
