@@ -69,7 +69,7 @@ class RecommendationService:
         reader = Reader(rating_scale=(0.5, 5.0))
         data = Dataset.load_from_df(self.ratings[["userId", "movieId", "rating"]], reader)
         trainset = data.build_full_trainset()
-        self.svd = SVD(n_factors=50, n_epochs=20, random_state=42)
+        self.svd = SVD(n_factors=50, n_epochs=200, random_state=42)
         self.svd.fit(trainset)
 
         print("✅ Modèles entraînés")
