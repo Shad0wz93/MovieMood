@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: moviemood-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # Montage du code pour le développement (hot reload)
+      - ./api:/app/api
+      - ./data:/app/data
+      # Ne pas monter __pycache__ et autres fichiers inutiles
+      - /app/api/__pycache__
+    environment:
+      - PYTHONUNBUFFERED=1
+      - APP_NAME=MovieMood API
+      - APP_VERSION=1.0.0
+      - DATA_PATH=/app/data
+      - THRESHOLD=4.0
+      - DEFAULT_ALPHA=0.5
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - moviemood-network
+
+networks:
+  moviemood-network:
+    driver: bridge
